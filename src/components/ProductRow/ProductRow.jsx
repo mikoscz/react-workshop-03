@@ -1,6 +1,6 @@
 import "./ProductRow.css";
 import { CartIcon } from "../CartIcon.jsx";
-import { useCart } from "../CartContext";
+import useCart from "../../hooks/useCart";
 
 export function ProductRow({ product }) {
   const cart = useCart();
@@ -11,7 +11,7 @@ export function ProductRow({ product }) {
         src={product.thumbnail} 
       />
       {product.title} - {product.price}$
-      <CartIcon onClick={()=>{cart.setCart([...cart.items, product])} }/>
+      <CartIcon onClick={()=>{cart.addProductToCart(product)} }/>
       {product.category}
     </div>
   )
