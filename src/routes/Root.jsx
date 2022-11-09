@@ -7,13 +7,10 @@ export function Root() {
 
     return <div>
         <NavBar
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-      />
-
-      
-        
-        <Outlet /></div>
-    
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+        />
+        <Outlet context={{searchValue}}/>
+    </div>
 }
 
