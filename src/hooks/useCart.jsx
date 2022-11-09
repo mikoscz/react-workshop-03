@@ -1,9 +1,12 @@
 import { useQuery, useMutation } from "@tanstack/react-query";
     import { queryClient } from '../main.jsx'
 import products from "../data/products.js";
+import { useState } from "react";
 
 
 function useCart() {
+
+    const [shipmentData, setShipmentData]=useState({})
 
     const query = useQuery(["carts", 1], async () => {
         const response = await fetch('http://localhost:3000/carts/1');
@@ -44,19 +47,21 @@ function useCart() {
 
     }
 
-
-
     if (query.isLoading) {
         return {
             products: [],
             removeProductFromCart,
-            addProductToCart
+            addProductToCart,
+            setShipmentData,
+            shipmentData
         }
     }
     return {
         products: query.data.products,
         removeProductFromCart,
-        addProductToCart
+        addProductToCart,
+        setShipmentData,
+        shipmentData
     }
 }
 
