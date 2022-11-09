@@ -22,11 +22,7 @@ function App() {
     return products;
   })
 
-  const cartQuery = useQuery(["carts", 1], async () => {
-    const response = await fetch('http://localhost:3000/carts/1');
-    const cart = await response.json();
-    return cart;
-  })
+
   if (query.isLoading) {
     return <span>Loading...</span>
   }

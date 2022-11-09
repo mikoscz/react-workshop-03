@@ -4,6 +4,8 @@ import {
   } from "react-router-dom";
 import { ErrorPage } from "./routes/ErrorPage.jsx";
 import { Root } from "./routes/Root.jsx";
+import { ProductsList } from "./components/ProductsList/ProductsList.jsx";
+import {CartDetails} from "./components/CartDetails/CartDetails.jsx"
 
   const router = createBrowserRouter([
     {
@@ -13,8 +15,11 @@ import { Root } from "./routes/Root.jsx";
       children: [
         {
             path: "/products",
-            // element: <ProductsList />
-            element:<div>productsList</div>
+            element: <ProductsList />
+        },
+        {
+            path: "/cart",
+             element: <CartDetails />
         },
       ]
     },
