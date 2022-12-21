@@ -71,12 +71,36 @@ function useCart() {
     });
   };
 
+  function setQuantity(item, quantity){
+    if (!quantity) {
+      return;
+    }
+    
+    if(quantity < 1 || quantity > 9){
+      return; 
+    }
+
+    const productsInCart = query.data.products.map((product) => {
+      if (product.id === item.id) {
+        return {
+          ...product,
+          quantity,
+        };
+      }
+      return product
+    })
+      mutation.mutate({
+        products: productsInCart,
+      });
+  }
+
   return {
     products: query.data.products,
     removeProductFromCart,
     addProductToCart,
     setShipmentData,
     shipmentData,
+    setQuantity,
   };
 }
 
