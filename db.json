@@ -574,7 +574,23 @@
             "https://dummyjson.com/image/i/products/2/3.jpg",
             "https://dummyjson.com/image/i/products/2/thumbnail.jpg"
           ],
-          "quantity": 7
+          "quantity": 9
+        },
+        {
+          "id": 3,
+          "title": "Samsung Universe 9",
+          "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+          "price": 1249,
+          "discountPercentage": 15.46,
+          "rating": 4.09,
+          "stock": 36,
+          "brand": "Samsung",
+          "category": "smartphones",
+          "thumbnail": "https://dummyjson.com/image/i/products/3/thumbnail.jpg",
+          "images": [
+            "https://dummyjson.com/image/i/products/3/1.jpg"
+          ],
+          "quantity": 1
         }
       ]
     }
