@@ -11,7 +11,7 @@ import {
 import { Router } from './Router.jsx'
 import { CartContext, CartContextProvider } from './components/CartContext'
 
-export const queryClient = new QueryClient()
+const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 

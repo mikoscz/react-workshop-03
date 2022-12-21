@@ -1,11 +1,9 @@
-import { useQuery, useMutation } from "@tanstack/react-query";
-import { queryClient } from "../main.jsx";
-import products from "../data/products.js";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 
 function useCart() {
   const [shipmentData, setShipmentData] = useState({});
-  const [tmp, setTmp] = useState(1);
+  const queryClient = useQueryClient();
 
   const query = useQuery(
     ["carts", 1],
@@ -48,8 +46,7 @@ function useCart() {
   };
 
   const addProductToCart = (newProduct) => {
-    // logic here
-    const productsInCart = query.data.products;
+    const productsInCart = [...query.data.products];
     const alreadyExists = productsInCart.find(
       (existingProduct) => existingProduct.id === newProduct.id
     );
