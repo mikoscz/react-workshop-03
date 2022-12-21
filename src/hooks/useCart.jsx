@@ -46,17 +46,24 @@ function useCart() {
   };
 
   const addProductToCart = (newProduct) => {
-    const productsInCart = [...query.data.products];
+    let productsInCart = [...query.data.products];
     const alreadyExists = productsInCart.find(
       (existingProduct) => existingProduct.id === newProduct.id
     );
 
     if (alreadyExists) {
-      alreadyExists.quantity += 1;
+      productsInCart = query.data.products.map((product) => {
+        if (product.id === newProduct.id) {
+          return {
+            ...product,
+            quantity: product.quantity + 1,
+          };
+        }
+      });
     } else {
       productsInCart.push({ ...newProduct, quantity: 1 });
     }
-
+    //
     mutation.mutate({
       products: productsInCart,
     });
