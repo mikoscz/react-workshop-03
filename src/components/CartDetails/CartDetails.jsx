@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import products from "../../data/products";
 import useCart from "../../hooks/useCart";
 
 export const CartDetails = () => {

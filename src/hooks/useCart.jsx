@@ -5,12 +5,21 @@ import { useState } from "react";
 
 function useCart() {
   const [shipmentData, setShipmentData] = useState({});
+  const [tmp, setTmp] = useState(1);
 
-  const query = useQuery(["carts", 1], async () => {
-    const response = await fetch("http://localhost:3000/carts/1");
-    const cart = await response.json();
-    return cart;
-  });
+  const query = useQuery(
+    ["carts", 1],
+    async () => {
+      const response = await fetch("http://localhost:3000/carts/1");
+      const cart = await response.json();
+      return cart;
+    },
+    {
+      initialData: {
+        products: [],
+      },
+    }
+  );
   const mutation = useMutation(
     async (cart) => {
       const response = await fetch("http://localhost:3000/carts/1", {
@@ -56,15 +65,6 @@ function useCart() {
     });
   };
 
-  if (query.isLoading) {
-    return {
-      products: [],
-      removeProductFromCart,
-      addProductToCart,
-      setShipmentData,
-      shipmentData,
-    };
-  }
   return {
     products: query.data.products,
     removeProductFromCart,
