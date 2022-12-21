@@ -16,7 +16,7 @@ export const Summary = () => {
     <div>
       <div>{data.firstName}</div>
       <div>{data.lastName}</div>
-      <div>{data.addres}</div>
+      <div>{data.address}</div>
       <div>{data.totalAmount}</div>
       <button type="button">accept</button>
     </div>

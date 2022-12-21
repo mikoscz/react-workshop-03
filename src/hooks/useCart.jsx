@@ -59,6 +59,8 @@ function useCart() {
             quantity: product.quantity + 1,
           };
         }
+
+        return product;
       });
     } else {
       productsInCart.push({ ...newProduct, quantity: 1 });
